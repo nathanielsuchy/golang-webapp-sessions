@@ -1,7 +1,7 @@
 package controllers
 
 type MainController struct {
-	BaseController
+	PrivateController
 }
 
 func (c *MainController) Get() {
