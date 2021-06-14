@@ -9,5 +9,6 @@ import (
 func init() {
 	beego.Router("/", &controllers.MainController{})
 	beego.Router("/sign-in", &controllers.SessionController{})
+	beego.Router("/sign-up", &controllers.RegistrationController{})
 	beego.Router("/sign-out", &controllers.SignoutController{})
 }

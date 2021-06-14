@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"github.com/beego/beego/v2/server/web"
+	beego "github.com/beego/beego/v2/server/web"
 )
 
 type BaseController struct {
@@ -10,8 +11,11 @@ type BaseController struct {
 
 // Runs after Init before request function execution
 func (c *BaseController) Prepare() {
-	c.Data["IsSignedIn"] = (c.GetSession("email") != nil)
-	c.Data["IsNotSignedIn"] = (c.GetSession("email") == nil)
+	c.Data["IsSignedIn"] = (c.GetSession("user_id") != nil)
+	c.Data["IsNotSignedIn"] = (c.GetSession("user_id") == nil)
+	flash := beego.ReadFromRequest(&c.Controller)
+	if flash != nil {
+	}
 }
 
 // Runs after request function execution
